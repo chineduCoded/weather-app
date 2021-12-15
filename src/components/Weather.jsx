@@ -208,8 +208,9 @@ padding: 0 2rem;
 `;
 
 const Wrapper = styled.div`
-width: 100%;
-min-height: 100vh;
+// width: 100%;
+// height: 100%;
+// max-height: 100vh;
 display: flex;
 justify-content: center;
 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
