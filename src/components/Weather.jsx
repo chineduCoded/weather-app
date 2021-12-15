@@ -68,7 +68,7 @@ export const Weather = ({ info }) => {
                         <span>Sunrise: {new Date(weather.sys.sunrise * 1000).toLocaleTimeString('en')}</span>
                         <span>Sunset: {new Date(weather.sys.sunset * 1000).toLocaleTimeString('en')}</span>
                     </SunChange>
-                    <WeatherHolder>{weather.weather[0].main}</WeatherHolder>
+                    <WeatherHolder>{weather.weather[0].description}</WeatherHolder>
                     <Humidity>Humidity: {weather.main.humidity}%</Humidity>
                 </WeatherBox>
                     </Main>
