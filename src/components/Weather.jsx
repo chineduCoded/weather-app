@@ -51,7 +51,7 @@ export const Weather = ({ info }) => {
                 <SearchBox>
                     <Input
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search location..."
                     onChange={(e) => setQuery(e.target.value)}
                     value={query}
                     onKeyPress={search} />
