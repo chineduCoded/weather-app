@@ -105,7 +105,7 @@ text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
 
 const WeatherHolder = styled.div`
 color: #fff;
-font-size: 35px;
+font-size: 25px;
 font-weight: 700;
 text-shadow: 3px 3px rgba(50, 50, 50, 0.5);
 text-transform: capitalize;
@@ -148,7 +148,7 @@ text-align: center;
 const DateHolder = styled.div`
 color: #fff;
 font-size: 20px;
-font-weight: 300px;
+font-weight: 300;
 font-style: italic;
 text-align: center;
 text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
@@ -208,9 +208,8 @@ padding: 0 2rem;
 `;
 
 const Wrapper = styled.div`
-// width: 100%;
-// height: 100%;
-// max-height: 100vh;
+width: 100%;
+height: 100%;
 display: flex;
 justify-content: center;
 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
@@ -220,6 +219,7 @@ padding-top: 25px;
 const Container = styled.div`
 width: 100%;
 height: 100%;
+min-height: 100vh;
 background-image: ${(props) => props.current === "cold" ? `url(${warm})` : `url(${cold})`};
 background-size: cover;
 background-position: bottom;
