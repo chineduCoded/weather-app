@@ -193,7 +193,7 @@ justify-content: center;
 
 const Header = styled.div`
 color: #fff;
-font-size: 30px;
+font-size: 20px;
 font-weight: 300px;
 text-align: center;
 text-shadow: 3px 3px rgba(50, 50, 50, 0.5);
@@ -209,6 +209,7 @@ padding: 0 2rem;
 
 const Wrapper = styled.div`
 width: 100%;
+min-height: 100vh;
 display: flex;
 justify-content: center;
 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
