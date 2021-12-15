@@ -212,7 +212,7 @@ width: 100%;
 display: flex;
 justify-content: center;
 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
-padding-top: 15px;
+padding-top: 25px;
 `;
 
 const Container = styled.div`
