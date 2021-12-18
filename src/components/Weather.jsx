@@ -14,18 +14,24 @@ export const Weather = ({ info }) => {
     
     const [query, setQuery] = useState("");
     const [weather, setWeather] = useState({});
+    const [error, setError] = useState("")
 
-    const search = (e) => {
+    const search = async (e) => {
         if(e.key === "Enter") {
-            fetch( `${api.url}weather?q=${query}&units=metric&appid=${api.key}` )
+            await fetch( `${api.url}weather?q=${query}&units=metric&appid=${api.key}` )
                 .then((res) => res.json())
                 .then((result) => {
                     setWeather(result)
                     setQuery("")
                     console.log(result)
+                    if(result.cod >= 400) {
+                        setError(result.message);
+                        return;
+                    }
                 })
                 .catch((err) => {
-                    console.log("Failed to Fetch Data", err)
+                    console.log("Failed to Fetch Data", err);
+                    setError(err);
                 })   
         }
     }
@@ -81,7 +87,9 @@ export const Weather = ({ info }) => {
                 ):(
                     <Loader>
                         <ReactLoading type={"bars"} color={"#fff"} height={'70%'} width={'70%'} />
+                        {error ? <div>{error}</div>:
                         <div>You haven't search location</div>
+                        }
                     </Loader>
                 )}
                </Content>
@@ -102,6 +110,7 @@ color: #fff;
 font-size: 20px;
 font-weight: 300px;
 font-style: italic;
+text-transform: capitalize;
 text-align: center;
 text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
 }
