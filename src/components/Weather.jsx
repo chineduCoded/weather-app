@@ -14,6 +14,7 @@ export const Weather = ({ info }) => {
     
     const [query, setQuery] = useState("");
     const [weather, setWeather] = useState({});
+    const [error, setError] = useState("");
 
     const search = (e) => {
         if(e.key === "Enter") {
@@ -24,6 +25,10 @@ export const Weather = ({ info }) => {
                     setQuery("")
                     console.log(result)
                 })
+                .catch((err) => {
+                    console.log("Failed to Fetch Data", err)
+                    setError("City not found", query)
+                })   
         }
     }
 
@@ -63,7 +68,10 @@ export const Weather = ({ info }) => {
                     <DateHolder>{dateBuilder(new Date())}</DateHolder>
                 </LocationBox>
                 <WeatherBox>
-                    <Temp>{Math.round(weather.main.temp)}°C</Temp>
+                    <Temp>
+                        <Image src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} />
+                        {Math.round(weather.main.temp)}°C
+                    </Temp>
                     <SunChange>
                         <span>Sunrise: {new Date(weather.sys.sunrise * 1000).toLocaleTimeString('en')}</span>
                         <span>Sunset: {new Date(weather.sys.sunset * 1000).toLocaleTimeString('en')}</span>
@@ -75,6 +83,7 @@ export const Weather = ({ info }) => {
                 ):(
                     <Loader>
                         <ReactLoading type={"bars"} color={"#fff"} height={'70%'} width={'70%'} />
+                        <div>You haven't search location</div>
                     </Loader>
                 )}
                </Content>
@@ -88,6 +97,16 @@ padding-top: 100px;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
+
+div {
+color: #fff;
+font-size: 20px;
+font-weight: 300px;
+font-style: italic;
+text-align: center;
+text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
+}
 `;
 
 const Main = styled.div`
@@ -125,16 +144,23 @@ text-align: center;
 text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
 }
 `;
+const Image = styled.img`
+width: 60px;
+height: 60px;
+object-fit: contain;
+`
 
 const Temp = styled.div`
 position: relative;
-display: inline-block;
+display: flex;
+align-items: center;
+flex-direction: column;
 margin: 20px auto;
 background-color: rgba(255, 255, 255, 0.2);
 border-radius: 16px;
-padding: 15px 25px;
+padding: 10px 20px;
 color: #fff;
-font-size: 80px;
+font-size: 60px;
 font-weight: 900;
 text-align: center;
 text-shadow: 3px 6px rgba(50, 50, 50, 0.5);
@@ -163,7 +189,7 @@ text-shadow: 3px 3px rgba(50, 50, 50, 0.5);
 `;
 
 const LocationBox = styled.div`
-padding-top: 40px;
+padding-top: 10px;
 `;
 
 const Input = styled.input`
@@ -213,7 +239,7 @@ height: 100%;
 display: flex;
 justify-content: center;
 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
-padding-top: 25px;
+padding: 25px 0;
 `;
 
 const Container = styled.div`
