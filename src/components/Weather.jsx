@@ -14,7 +14,6 @@ export const Weather = ({ info }) => {
     
     const [query, setQuery] = useState("");
     const [weather, setWeather] = useState({});
-    const [error, setError] = useState("");
 
     const search = (e) => {
         if(e.key === "Enter") {
@@ -27,7 +26,6 @@ export const Weather = ({ info }) => {
                 })
                 .catch((err) => {
                     console.log("Failed to Fetch Data", err)
-                    setError("City not found", query)
                 })   
         }
     }
