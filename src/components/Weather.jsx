@@ -156,7 +156,7 @@ flex-direction: column;
 margin: 20px auto;
 background-color: rgba(255, 255, 255, 0.2);
 border-radius: 16px;
-padding: 10px 20px;
+padding: 15px 25px;
 color: #fff;
 font-size: 60px;
 font-weight: 900;
@@ -176,6 +176,10 @@ font-weight: 300;
 font-style: italic;
 text-align: center;
 text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
+
+@media screen and (max-width: 320px) {
+    font-size: 18px;
+}
 `;
 
 const Location = styled.div`
@@ -184,10 +188,14 @@ font-size: 32px;
 font-weight: 500px;
 text-align: center;
 text-shadow: 3px 3px rgba(50, 50, 50, 0.5);
+
+@media screen and (max-width: 375px) {
+    font-size: 20px;
+}
 `;
 
 const LocationBox = styled.div`
-padding-top: 10px;
+padding-top: 40px;
 `;
 
 const Input = styled.input`
@@ -229,6 +237,9 @@ width: 400px;
 height: 100vh;
 padding: 0 2rem;
 
+@media screen and (max-width: 480px) {
+    max-width: 100%;
+}
 `;
 
 const Wrapper = styled.div`
