@@ -140,6 +140,9 @@ font-weight: 300px;
 font-style: italic;
 text-align: center;
 text-shadow: 2px 2px rgba(50, 50, 50, 0.5);
+
+@media screen and (min-width: 768px) {
+    margin-bottom: 10px;
 }
 `;
 const Image = styled.img`
@@ -190,7 +193,7 @@ text-align: center;
 text-shadow: 3px 3px rgba(50, 50, 50, 0.5);
 
 @media screen and (max-width: 375px) {
-    font-size: 20px;
+    font-size: 28px;
 }
 `;
 
